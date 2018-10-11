@@ -8,7 +8,9 @@ import { Location } from '@angular/common';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  selectLi:string;
+  selectLi:string = 'dashboard1';
+  selectTitle:string = 'dashboard';
+  acturl:string = window.location.href;
 
   constructor(
     private route: ActivatedRoute,
@@ -16,19 +18,14 @@ export class AppComponent {
   ) {}
 
   ngOnInit() {
-    let acturl:string = window.location.href;
     this.selectLi = this.acturl.substring(this.acturl.lastIndexOf("/")+1);
   }
 
-  title = 'adminlte';
-
-  acturl:string = window.location.href;
-  console.log(acturl);
-
-
-
-
   onSelect(li:string): void{
     this.selectLi = li;
+  }
+
+  onSelectTitle(title:string): void{
+    this.selectTitle = title;
   }
 }
